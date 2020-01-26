@@ -1,10 +1,3 @@
----
-title: "readme"
-author: "Molnár Gábor"
-date: '2020 01 26 '
-output: html_document
----
-
 # Tidy tuesday solutions
 
 The source is:  <https://github.com/rfordatascience/tidytuesday>
