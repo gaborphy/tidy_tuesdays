@@ -1,4 +1,4 @@
-#Tidy tuesday solutions
+# Tidy tuesday solutions
 
 The source is:  <https://github.com/rfordatascience/tidytuesday>
 
