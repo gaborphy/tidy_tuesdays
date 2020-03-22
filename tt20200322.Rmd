@@ -1,0 +1,35 @@
+---
+title: "TidyTuesday - The Office"
+author: "Molnár Gábor"
+date: '2020 03 22 '
+output: html_document
+---
+
+Get data [source](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md)
+
+```{r setup, include=FALSE}
+#install.packages('schrute')
+library(schrute)
+library(tidyverse)
+library(tidymodels)
+library(tidytext)
+
+office_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-17/office_ratings.csv')
+
+schrute <- schrute::theoffice
+
+```
+
+```{r}
+tokenzied_text <- schrute %>% 
+  unnest_tokens(words, text)
+
+topwords10 <- tokenzied_text %>%
+  anti_join(stop_words, by=c('words' = 'word')) %>% 
+  group_by(episode, words) %>% 
+  mutate(n=n()) %>%
+  ungroup()
+
+
+```
+
